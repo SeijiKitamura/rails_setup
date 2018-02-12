@@ -29,6 +29,13 @@ function yes_no_while(){
         #Rails インストール
         rails _${RAILS_VERSION}_ new ../${RAILS_APP} --skip-bundle
 
+        #git
+        cd ./${RAILS_APP}
+        git init
+        git add .
+        git commit -m "first commit"
+        cd ..
+
         #設定ファイルコピー
         rm ../${RAILS_APP}/app/views/layouts/application.html.erb
         cp application.html.slim ../${RAILS_APP}/app/views/layouts/
