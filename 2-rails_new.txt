@@ -1,0 +1,9 @@
+#pumaは日本語ディレクトリ名に対応していないのでアプリを作成する場所に
+#気をつけること
+
+# _5.0.1_を希望するバージョンに変更
+# test_appを任意のアプリ名に変更
+
+cd
+rails _5.0.1_ new test_app --skip-bundle 
+cd test_app

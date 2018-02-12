@@ -1,0 +1,17 @@
+インストール環境
+1.rootで実行するrubyはインストールしない
+2.rbenvを使用
+
+インストール手順
+cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+exec $SHELL
+
+rbenv install 2.3.0 #ここにインストールしたいRubyのバージョンを入力
+rbenv global 2.3.0
+gem install rails version='5.0.1' --no-ri --no-rdoc #ここにインストールしたいRailsのバージョンを入力
