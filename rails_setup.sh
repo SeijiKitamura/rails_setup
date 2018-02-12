@@ -2,7 +2,8 @@
 
 cd `dirname $0`
 
-echo "現在のディレクトリは `pwd` です"
+NOW_DIR=`pwd`
+echo "現在のディレクトリは ${NOW_DIR} です"
 
 
 function yes_no_while(){
@@ -30,11 +31,12 @@ function yes_no_while(){
         rails _${RAILS_VERSION}_ new ../${RAILS_APP} --skip-bundle
 
         #git
-        cd ./${RAILS_APP}
+        echo "Railsアプリ内でgit を実行します"
+        cd ../${RAILS_APP}
         git init
         git add .
         git commit -m "first commit"
-        cd ..
+        cd ${NOW_DIR}
 
         #設定ファイルコピー
         rm ../${RAILS_APP}/app/views/layouts/application.html.erb
@@ -46,6 +48,7 @@ function yes_no_while(){
         mkdir ../${RAILS_APP}/tmp/sockets
         mkdir ../${RAILS_APP}/tmp/pids
 
+        #絶対パス取得
         ABS_PATH=$(cd ../${RAILS_APP} && pwd)
 
         #puma自動起動
@@ -65,7 +68,9 @@ function yes_no_while(){
         rm ${RAILS_APP}.conf
 
         #終了メッセージ
-        echo "作成しました。以下のコマンドを実行してください"
+        echo 
+        echo "Railsアプリ「${RAILS_APP}」を作成しました。以下のコマンドを実行してください"
+        echo 
         echo " cd ${ABS_PATH}"
         echo " bundle install"
         echo " rails db:create"

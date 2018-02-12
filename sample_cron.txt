@@ -4,7 +4,7 @@
 # 環境変数の扱いがうまく行かないため起動に失敗します。
 # この方法なら問題なく起動できます。
 
-@reboot cd _app_dir_ && SECRET_KEY_BASE=`rake secret` RAILS_ENV="production" bundle exec puma -C config/puma.rb -d
+@reboot cd _app_dir_ && SECRET_KEY_BASE=`rake secret` RAILS_ENV=production bundle exec puma -C config/puma.rb -d
 
 # なお起動中のpumaを止めるにはRailsのディレクトリに移動後、以下のコマンドを実行してください。
 # 

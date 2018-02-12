@@ -4,6 +4,12 @@
 # tmp/sockets
 # tmp/pids
 
+# puma起動方法(本番環境)
+# SECRET_KEY_BASE=`rake secret` RAILS_ENV="production" bundle exec puma -C config/puma.rb -d"
+
+# puma終了方法
+# pumactl stop
+
 app_dir = File.expand_path("../..", __FILE__)
 tmp_dir = "#{app_dir}/tmp"
 bind "unix://#{tmp_dir}/sockets/puma.sock"
