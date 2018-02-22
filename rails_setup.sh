@@ -67,6 +67,7 @@ function yes_no_while(){
         sudo systemctl restart nginx
         rm ${RAILS_APP}.conf
 
+
         #終了メッセージ
         echo 
         echo "Railsアプリ「${RAILS_APP}」を作成しました。以下のコマンドを実行してください"
@@ -76,6 +77,9 @@ function yes_no_while(){
         echo " rails db:create"
         echo " rails assets:precompile"
         echo ' SECRET_KEY_BASE=`rake secret` RAILS_ENV=production bundle exec puma -C config/puma.rb -d'
+
+        echo 
+        echo "/etc/nginx/nginx.confのuserを使用している`whoami`に変更してください"
         break
         ;;
       *)
